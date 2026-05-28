@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neo Ledger Dashboard</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="topbar">
+        <div class="brand">
+            <div class="logo">📘</div>
+            <div>
+                <h1>Neo Daily Ledger</h1>
+                <p>Modern Expense Tracking & Smart Monthly Billing</p>
+            </div>
+        </div>
+        <div class="date-box">
+            <h2 id="day">Thursday</h2>
+            <p id="date">May 28, 2026</p>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <div>
+            <div class="card">
+                <div class="card-title">Delivery Configuration</div>
+
+                <div class="toggle">
+                    <div class="toggle-label">🥛 Milk Delivered Today</div>
+                    <label class="switch">
+                        <input type="checkbox" id="milk-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="grid" id="milk-section">
+                    <div>
+                        <div class="sub">Milk Type</div>
+                        <div class="option-list">
+                            <div class="option active" data-type="Cow Milk" data-price="70">
+                                <span>🐄 Cow Milk</span>
+                                <strong>₹70/L</strong>
+                            </div>
+                            <div class="option" data-type="Buffalo Milk" data-price="85">
+                                <span>🐃 Buffalo Milk</span>
+                                <strong>₹85/L</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="sub">Milk Details</div>
+                        <div style="display:flex; flex-direction:column; gap:12px;">
+                            <input class="input" id="milk-qty" type="number" step="0.1" value="2" placeholder="Milk Quantity (L)">
+                            <input class="input" id="milk-rate" type="number" value="70" placeholder="Price Per Liter">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="toggle">
+                    <div class="toggle-label">📰 Newspaper Delivered</div>
+                    <label class="switch">
+                        <input type="checkbox" id="paper-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div style="display:flex; gap:12px;" id="paper-section">
+                    <input class="input" id="paper-name" value="TOI" placeholder="Newspaper Name">
+                    <input class="input" id="paper-rate" type="number" step="0.05" value="6.50" placeholder="Daily Rate">
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" id="save-entry">Save Daily Entry</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="card">
+                <div class="card-title">Live Summary</div>
+                <div class="summary">
+                    <div class="summary-item">
+                        <span>Milk Expense</span>
+                        <strong id="live-milk-cost">₹140.00</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Newspaper Expense</span>
+                        <strong id="live-paper-cost">₹6.50</strong>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total Today</span>
+                        <strong id="live-total-cost">₹146.50</strong>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="card">
+                <div class="card-title">Monthly Ledger</div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Milk</th>
+                                <th>Paper</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ledger-rows">
+                            </tbody>
+                    </table>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-purple" id="btn-invoice">Generate PDF Invoice</button>
+                    <button class="btn btn-dark" id="btn-reset">Reset Monthly Data</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <p>Total Milk Deliveries</p>
+            <h2 class="blue" id="stat-milk-count">0</h2>
+        </div>
+        <div class="stat">
+            <p>Total Newspaper Deliveries</p>
+            <h2 class="purple" id="stat-paper-count">0</h2>
+        </div>
+        <div class="stat">
+            <p>Total Outstanding</p>
+            <h2 class="green" id="stat-total-billing">₹0</h2>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
